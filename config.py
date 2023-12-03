@@ -1,9 +1,7 @@
 """
-Compiled, mashed and generally mutilated 2023 by Chris Staring
-Made available under GNU GENERAL PUBLIC LICENSE
-# PiHat Dual RS485
-# added bits and pieces from various sources
-# By Chris Staring
+# PiHat Dual RS485 von Waveshare
+# Konfiguration vom HAT
+# Programmiert => Chris Staring
 # 2023-12-02, ver 0.1
 """
 
@@ -28,19 +26,6 @@ class config(object):
 
         GPIO.output(TXDEN_1, GPIO.HIGH)
         GPIO.output(TXDEN_2, GPIO.HIGH)
-        
-    def Uart_SendByte(ser, value): 
-        ser.serial.write(value.encode('ascii')) 
-    
-    def Uart_SendString(ser, value): 
-        ser.serial.write(value.encode('ascii'))
-
-    def Uart_ReceiveByte(ser): 
-        return ser.serial.read(1).decode("utf-8")
-
-    def Uart_ReceiveString(ser, value): 
-        data = ser.serial.read(value)
-        return data.decode("utf-8")
         
     def Uart_Set_Baudrate(ser, Baudrate):
          ser.serial = serial.Serial(ser.dev, Baudrate)
